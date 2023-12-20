@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Gallery</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,600" />
+    <link rel="stylesheet" href="css/all.min.css" />
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/templatemo-style.css" />
+  </head>
+  <body>
+    <div class="container-fluid">
+      <div class="row tm-brand-row">
+        <div class="col-lg-4 col-10">
+          <div class="tm-brand-container">
+            <div class="tm-brand-texts">
+              <h1 class="text-uppercase tm-brand-name">JENILYN AMABA</h1>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-8 col-2 tm-nav-col">
+          <div class="tm-nav">
+            <nav class="navbar navbar-expand-lg navbar-light tm-navbar">
+              <button
+                class="navbar-toggler"
+                type="button"
+                data-toggle="collapse"
+                data-target="#navbarNav"
+                aria-controls="navbarNav"
+                aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto mr-0">
+                  <li class="nav-item">
+                    <div class="tm-nav-link-highlight"></div>
+                    <a class="nav-link" href="index.html">Home</a>
+                  </li>
+                  <li class="nav-item">
+                    <div class="tm-nav-link-highlight"></div>
+                    <a class="nav-link" href="about.html"> About</a>
+                  </li>
+                  <li class="nav-item active">
+                    <div class="tm-nav-link-highlight"></div>
+                    <a class="nav-link" href="gallery.html">
+                     Projects <span class="sr-only">(current)</span>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <div class="tm-nav-link-highlight"></div>
+                    <a class="nav-link" href="contact.html">Contact</a>
+                  </li>
+                </ul>
+              </div>
+            </nav>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="container">
+        <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+        <div class="container">
+          <div class="flex-container">
+            <div id="app">
+              <h2>🌸To do App🌸</h2>
+              <input v-model="newTask" @keyup.enter="addTask" placeholder="Add a new task" />
+              <button @click="addTask">Add</button> <!-- Add button -->
+              <ul>
+                <li v-for="(task, index) in tasks" :key="index">
+                  <span :class="{ completed: task.completed }">{{ task.text }}</span>
+                  <button @click="removeTask(index)">Remove</button>
+                </li>
+              </ul>
+              <button @click="clearList">Clear List</button>
+            </div>
+          </div>
+          <script>
+            new Vue({
+              el: '#app',
+              data: {
+                newTask: '',
+                tasks: []
+              },
+              methods: {
+                addTask() {
+                  if (this.newTask.trim() !== '') {
+                    this.tasks.push({
+                      text: this.newTask,
+                      completed: false
+                    });
+                    this.newTask = '';
+                  }
+                },
+                removeTask(index) {
+                  this.tasks.splice(index, 1);
+                },
+                clearList() {
+                  this.tasks = [];
+                }
+              }
+            });
+          </script>
+
+<div class="container">
+  <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+  <div class="container">
+    <div class="flex-container">
+<div id="app2">
+  <h2>Color Palette Generator</h2>
+
+  <button @click="generatePalette">Generate Palette</button>
+
+  <div v-if="colors.length > 0" class="color-palette">
+    <div v-for="(color, index) in colors" :key="index" class="color-box" :style="{ backgroundColor: color }"></div>
+  </div>
+</div>
+
+<style>
+  #app2 {
+  text-align: center;
+    margin-top: 50px;
+    padding: 20px;
+    background-color: #5320dd; /* Adjust as needed */
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+
+  .color-palette {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+  }
+
+  .color-box {
+    width: 30px;
+    height: 30px;
+    margin: 3 5px;
+  }
+</style>
+
+<script>
+new Vue({
+  el: '#app2',
+  data: {
+    colors: []
+  },
+  methods: {
+    generatePalette() {
+      this.colors = Array.from({ length: 5 }, () => getRandomColor());
+    }
+  }
+});
+
+function getRandomColor() {
+  const letters = '0123456789ABCDEF';
+  let color = '#';
+  for (let i = 0; i < 6; i++) {
+    color += letters[Math.floor(Math.random() * 16)];
+  }
+  return color;
+}
+</script>
+
+
+
+      <div class="row tm-welcome-row">
+        <div class="col-12">
+          <div
+            class="tm-welcome-parallax tm-center-child"
+            data-parallax="scroll"
+
+     
+      <!-- Page footer -->
+      <footer class="row tm-page-footer">
+        <p class="col-12 tm-copyright-text mb-0">
+          Copyright &copy;y; 2023 JENILYN AMABA  reserve
+        </p>
+      </footer>
+    </div>
+
+    <style scoped>
+
+/* Add this CSS code to customize your Gallery page */
+#app {
+  font-family: 'Arial', sans-serif;
+  background-color: rgb(179, 86, 102);
+  text-align: center;
+  color: #ddeaf0;
+  margin: 20px 20px 20px 20px; /* Update the margin property */
+  max-width: 500px; /* Adjust the max-width as needed */
+  border: 2px solid #3498db;
+  border-radius: 8px;
+  padding: 20px;
+}
+
+.list-item {
+  max-width: 300px; /* Adjust the value according to your preference */
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.flex-container .flex-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 20px; /* Add padding to the container */
+        border: 10px solid #f1eded; /* Add a border for better visibility */
+        border-radius: 8px; /* Add border-radius for a rounded appearance */
+        width: 300px; /* Set a fixed width for better layout */
+      }
+      .completed {
+        text-decoration: line-through;
+      }
+
+      ul {
+  list-style: none; /* Remove default list-style (bullets) */
+  padding: 0; /* Remove default padding */
+}
+
+/* Optionally, add padding or other styles to the list items */
+li {
+  padding: 8px;
+  margin-bottom: 5px;
+  border: 1px solid #fafcf3;
+}
+body {
+  font-family: 'Open Sans', sans-serif;
+  background-color: #98f5fc; /* Set the background color for the entire page */
+  color: #080808; /* Set the text color */
+}
+
+.tm-brand-name {
+  color: #172403; /* Set the text color to black */
+  text-shadow: 10px 0px 15px rgba(202, 70, 70, 0.8);
+}
+
+.tm-text-secondary {
+  color: #000; /* Set the text color to black */
+}
+
+.tm-brand-container {
+  background-color:transparent; /* Set the background color */
+  color: #e61414; /* Set the text color */
+}
+
+/* Navigation Bar Styles */
+.navbar {
+  background-color: #ccc0c0; /* Set the background color of the navbar */
+  padding: 10px 100px; /* Add padding to the navbar */
+}
+
+.navbar-nav .nav-link {
+  color: #000; /* Set the text color to black */
+}
+
+/* Active Link Highlight */
+.tm-nav-link-highlight {
+  height: 3px;
+  background-color: #fbfcf9; /* Set the color for the active link highlight */
+}
+
+/* Page Content Styles */
+.tm-page-cols-container {
+  margin-top: 30px; /* Add space above the page content */
+  margin-block-end: 30px;
+}
+
+.tm-contact-container {
+  background-color: #f7b552; /* Set the background color for the contact container */
+  padding: 20px; /* Add padding to the contact container */
+  border-radius: 8px; /* Add border-radius for a rounded appearance */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.8); /* Add box shadow for depth */
+  color: #2a0483;
+}
+
+.tm-address-container {
+  margin-bottom: 30px; /* Add space below the address container */
+}
+
+.tm-form-container {
+  background-color: #77f37d; /* Set the background color for the form container */
+  padding: 20px; /* Add padding to the form container */
+  border-radius: 8px; /* Add border-radius for a rounded appearance */
+ color: #093981;
+  max-width: 600px; /* Set the maximum width for the form container */
+  margin: 0 auto; /* Center the form container horizontally */
+  padding: 20px; /* Add padding to the form container */
+  border-radius: 8px; /* Add border-radius for a rounded appearance */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.8); /* Add box shadow for depth */
+}
+
+/* Footer Styles */
+.tm-page-footer {
+  background-color: #69a4fd; /* Set the background color of the footer */
+  color: #070606; /* Set the text color of the footer */
+  padding: 15px 0; /* Add padding to the footer */
+  text-align: center; /* Center align text in the footer */
+}
+
+    </style>
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/parallax.min.js"></script>
+    <script src="js/imagesloaded.pkgd.min.js"></script>
+    <script src="js/isotope.pkgd.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script>
+      $(function() {
+        /* Isotope Gallery */
+
+        // init isotope
+        var $gallery = $(".tm-gallery").isotope({
+          itemSelector: ".tm-gallery-item",
+          layoutMode: "fitRows"
+        });
+        // layout Isotope after each image loads
+        $gallery.imagesLoaded().progress(function() {
+          $gallery.isotope("layout");
+        });
+
+        $(".filters-button-group").on("click", "a", function() {
+          var filterValue = $(this).attr("data-filter");
+          $gallery.isotope({ filter: filterValue });
+          console.log("Filter value: " + filterValue);
+        });
+
+        /* Tabs */
+        $(".tabgroup > div").hide();
+        $(".tabgroup > div:first-of-type").show();
+        $(".tabs a").click(function(e) {
+          e.preventDefault();
+          var $this = $(this),
+            tabgroup = "#" + $this.parents(".tabs").data("tabgroup"),
+            others = $this
+              .closest("li")
+              .siblings()
+              .children("a"),
+            target = $this.attr("href");
+          others.removeClass("active");
+          $this.addClass("active");
+
+          // Scroll to tab content (for mobile)
+          if ($(window).width() < 992) {
+            $("html, body").animate(
+              {
+                scrollTop: $("#tmGallery").offset().top
+              },
+              200
+            );
+          }
+        });
+      });
+    </script>
+  </body>
+</html>
